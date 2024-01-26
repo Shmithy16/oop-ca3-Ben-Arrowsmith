@@ -1,6 +1,7 @@
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Scanner;
+import java.lang.Math;
 
 /**
  *  Name:
@@ -16,10 +17,10 @@ import java.util.Scanner;
 
     public void start() {
         parkingStack();
-        //stack3();
     }
 
     public void parkingStack(){
+        Deque<Integer> driveWay = new ArrayDeque<>();
         Deque<Integer> parkingSpace = new ArrayDeque<>();
 
         System.out.println("Please enter a list of words, \"0\" to exit");
@@ -28,39 +29,22 @@ import java.util.Scanner;
         int car = in.nextInt();
 
         while(car!=0){
-            parkingSpace.push(car);
-            car = in.nextInt();
-        }
+            if(car <0){
+                int remove = Math.abs(car);
+                int move = driveWay.peek();
+                while(move != remove-1){
+                    driveWay.pop();
+                    parkingSpace.push(move);
+                    move = move-1;
 
-    }
-
-
-    public void stack2() {
-        //TODO add code to this starter code as described below.
-        // 1. declare a stack to store objects of type String
-        Deque<String> newStack = new ArrayDeque<>();
-
-        Scanner in = new Scanner(System.in);
-
-        String word = "";
-        System.out.println("Stack sample stack2().");
-        System.out.println("Please enter a list of words, \"q\" to exit");
-
-        while (!word.equals("q")) {
-            word = in.next();
-            if (!word.equals("q")) {
-                //TODO 2. add the word to stack  (push())
-                newStack.push(word);
+                }
+                car = in.nextInt();
+            }else {
+                driveWay.push(car);
+                car = in.nextInt();
             }
         }
-
-        System.out.println("Your words in reverse order are: ");
-          while (!newStack.isEmpty()) {
-            word = newStack.pop();
-            System.out.println(word);
-            }
-        //TODO 3. Write code to retrieve words from the stack - one by one -
-        // and display them as they are removed.  (see loop is sample function above)
-
+        System.out.println(driveWay);
+        System.out.println(parkingSpace);
+     }
     }
-}
