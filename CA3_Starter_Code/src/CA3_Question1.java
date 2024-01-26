@@ -4,8 +4,8 @@ import java.util.Scanner;
 import java.lang.Math;
 
 /**
- *  Name:
- *  Class Group:
+ *  Name:Ben Arrowsmith
+ *  Class Group: GD2B
  */
 
     public class CA3_Question1 {
