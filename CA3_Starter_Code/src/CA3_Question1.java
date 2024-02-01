@@ -23,7 +23,7 @@ import java.lang.Math;
         Deque<Integer> driveWay = new ArrayDeque<>();
         Deque<Integer> parkingSpace = new ArrayDeque<>();
 
-        System.out.println("Please enter a list of words, \"0\" to exit");
+        System.out.println("Please enter numbers, \"0\" to exit");
 
         Scanner in = new Scanner(System.in);
         int car = in.nextInt();
