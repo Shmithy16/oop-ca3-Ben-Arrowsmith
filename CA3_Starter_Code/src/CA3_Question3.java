@@ -35,6 +35,11 @@ public class CA3_Question3
             }
             lineNumber++;
         }
-        System.out.println(map);
+        System.out.println("All entries");
+        for(Map.Entry<String, HashSet<Integer>> entry : map.entrySet()){
+            String key = entry.getKey();
+            HashSet <Integer> mySet = entry.getValue();
+            System.out.println(key + " -> " + mySet);
+        }
     }
 }
