@@ -1,9 +1,17 @@
-
+import java.util.ArrayDeque;
+import java.util.Queue;
+import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.Deque;
 /**
- *  Name:
- *  Class Group:
+ *  Name: Ben Arrowsmith
+ *  Class Group:GD2B
  */
+
+class Block{
+    int qty;
+    int price;
+}
 public class CA3_Question6
 {
 
@@ -16,7 +24,8 @@ public class CA3_Question6
     quit
      */
     public static void main(String[] args) {
-
+        Queue<Double> totalValue = new LinkedList<>();
+        Deque<Block> blocks = new ArrayDeque<>();
        Scanner in = new Scanner(System.in);
         String command="";
             do {
@@ -26,14 +35,14 @@ public class CA3_Question6
             {
                 int qty = in.nextInt();
                 double price = in.nextDouble();
-
+                totalValue.add(qty*price);
             }
             else if(command.equals("sell"))
             {
                 int qty = in.nextInt();
                 double price = in.nextDouble();
-
-
+                double gain = price*qty-totalValue.remove();
+                System.out.print("The gain will be: " + gain);
             }
         }while(!command.equalsIgnoreCase("quit"));
     }
